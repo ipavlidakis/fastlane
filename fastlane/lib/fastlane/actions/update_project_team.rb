@@ -13,6 +13,7 @@ module Fastlane
 
         p = File.read(path)
         File.write(path, p.gsub(/DevelopmentTeam = .*;/, "DevelopmentTeam = #{params[:teamid]};"))
+        File.write(path, p.gsub(/DEVELOPMENT_TEAM = .*;/, "DEVELOPMENT_TEAM = #{params[:teamid]};"))
 
         UI.success("Successfully updated project settings to use Developer Team ID '#{params[:teamid]}'")
       end
